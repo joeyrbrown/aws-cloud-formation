@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: Starter EC2
+Description: Starter EC2 CF Stack
 Metadata: 
 
 Parameters: 
@@ -9,5 +9,21 @@ Mappings:
 Conditions: 
 
 Resources: 
-
+  myEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      KeyName: 
+      DisableApiTermination: 
+      # ES AMI - AMI ID is centos7-minimal-v20190408.0.0 (ami-043171ff4488b3e87) but free tier is ami-4bf3d731
+      ImageId: ami-4bf3d731
+      InstanceType: t2.micro
+      Monitoring: true|false
+      SecurityGroupIds:
+        - sg-id
+      UserData: 
+        #!/bin/bash -ex
+        # put your script here
+      Tags:
+        - Key: Name
+          Value: ES Basic centos-7 Server
 Outputs:
