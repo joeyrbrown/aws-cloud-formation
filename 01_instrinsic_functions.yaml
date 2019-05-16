@@ -1,0 +1,11 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Instrinsic Example 01
+Resources:
+  Ec2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-02eac2c0129f6376b # Amazon Linux AMI in N.Virginia
+      Tags:
+        - Key: Name
+          Value: !Join [ " ", [ EC2, Instance, with, Fn, Join] ]
