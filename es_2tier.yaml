@@ -135,7 +135,7 @@ Resources:
       Protocol: '6'
       RuleAction: allow
       Egress: 'false'
-      CidrBlock: 0.0.0.0/0 #!Ref SSHLocation (address later)
+      CidrBlock: 0.0.0.0/0 #!Ref SSH Bastion Host
       PortRange:
         From: '22'
         To: '22'
