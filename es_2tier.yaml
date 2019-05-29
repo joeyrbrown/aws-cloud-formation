@@ -1,12 +1,12 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: ES 2 Tier Deployment CF Deployment Template
+Description: ES 2 Tier CF Deployment Template
 Mappings:
   SubnetConfig:
     VPC:
       CIDR: 10.0.0.0/16
-    Public1:
+    WebSubnet01:
       CIDR: 10.0.0.0/24
-    Public2:
+    WebSubnet02:
       CIDR: 10.0.1.0/24
 Resources:
   VPC:
@@ -29,7 +29,7 @@ Resources:
       VpcId: !Ref VPC
       CidrBlock: !FindInMap 
         - SubnetConfig
-        - Public1
+        - WebSubnet01
         - CIDR
       AvailabilityZone: !Select 
         - 0
@@ -45,7 +45,7 @@ Resources:
       VpcId: !Ref VPC
       CidrBlock: !FindInMap 
         - SubnetConfig
-        - Public2
+        - WebSubnet02
         - CIDR
       AvailabilityZone: !Select 
         - 1
